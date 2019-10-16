@@ -5,7 +5,6 @@ import {
   isReactive,
   isReadonly,
   markNonReactive,
-  markReadonly,
   lock,
   unlock,
   effect,

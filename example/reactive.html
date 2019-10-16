@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>reactive</title>
+</head>
+
+<body>
+  <script src="../packages/reactivity/dist/reactivity.global.js"></script>
+  <script>
+   
+    const original = [{
+      foo: 1
+    }, {
+      bar: 2
+    }]
+    const observed = VueObserver.reactive(original)
+    // console.log(observed);
+    console.log(observed[0]);
+    // const value = {
+    //   baz: 3
+    // }
+    // const reactiveValue = VueObserver.reactive(value)
+    // console.log(reactiveValue);
+    // observed[0] = value
+    // console.log(observed[0] === reactiveValue)//true
+    // console.log(original[0] === value)//true
+    // delete observed[0]
+    // console.log(observed[0])
+    // console.log(original[0])
+    // observed.push(value)
+    // console.log(observed[2] === reactiveValue)//true
+    // console.log(original[2] === value)//true
+    
+  </script>
+</body>
+
+</html>

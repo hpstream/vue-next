@@ -20,6 +20,7 @@ function createGetter(isReadonly: boolean) {
     if (isRef(res)) {
       return res.value
     }
+    console.log(res)
     track(target, OperationTypes.GET, key)
     return isObject(res)
       ? isReadonly

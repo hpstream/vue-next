@@ -50,6 +50,7 @@ export function reactive(target: object) {
   if (readonlyValues.has(target)) {
     return readonly(target)
   }
+  console.log(target)
   return createReactiveObject(
     target,
     rawToReactive,
@@ -102,15 +103,19 @@ function createReactiveObject(
   if (!canObserve(target)) {
     return target
   }
+  // 判断是否是 Set, Map, WeakMap, WeakSet。
   const handlers = collectionTypes.has(target.constructor)
     ? collectionHandlers
     : baseHandlers
   observed = new Proxy(target, handlers)
+
+  // 存储双份数据
   toProxy.set(target, observed)
   toRaw.set(observed, target)
   if (!targetMap.has(target)) {
     targetMap.set(target, new Map())
   }
+  // console.log(targetMap)
   return observed
 }
 
